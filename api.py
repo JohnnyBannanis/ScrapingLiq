@@ -2,7 +2,7 @@ from flask import Flask
 import difference
 import liq_scrap
 
-url = "https://www.pcfactory.cl/liquidacion"
+url = "https://www.pcfactory.cl/liquidacion?orden=2"
 
 app = Flask(__name__)
 

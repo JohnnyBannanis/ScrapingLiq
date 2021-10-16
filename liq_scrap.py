@@ -1,7 +1,6 @@
 import requests
 from bs4 import BeautifulSoup
 
-url = "https://www.pcfactory.cl/liquidacion"
 
 def scraping(url):
     page = requests.get(url)
@@ -9,7 +8,7 @@ def scraping(url):
     array = []
     data = {}
     for cat in soup.select( 'div[data-id]'):
-        categoryName = (cat["data-id"].replace("/liq-","").upper())
+        categoryName = cat["data-id"].upper().replace("/LIQ-",'')
         data[categoryName] = {}
         prods = []
         for i in cat.find_all('div', class_='product'):  

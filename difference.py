@@ -1,7 +1,7 @@
 import json
 import liq_scrap
 
-url = "https://www.pcfactory.cl/liquidacion"
+url = "https://www.pcfactory.cl/liquidacion?orden=2"
 
 def diff():
     with open('db.json') as json_file:
