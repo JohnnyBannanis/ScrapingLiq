@@ -19,7 +19,7 @@ def dataScraping():
 def newData():
     response = {}
     try:
-        response["data"] = difference.diff()
+        response["data"] = list(chunks(difference.diff(), 10))
     except Exception as ex:
         print(ex)
     return response
@@ -45,10 +45,16 @@ def category(key):
     response = {}
     try:
         scraping = liq_scrap.scraping(url)
-        response["data"] = scraping[key]
+        response["data"] = list(chunks(scraping[key], 10))
+        print(scraping[key])
+        print(response)
     except Exception as ex:
         print(ex)
     return response
+
+def chunks(l, n):
+        n = max(1, n)
+        return (l[i:i+n] for i in range(0, len(l), n))
 
 if __name__ == '__main__':
     #set host and port
