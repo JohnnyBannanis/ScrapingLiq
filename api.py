@@ -31,7 +31,10 @@ def categories():
         category_names = liq_scrap.scraping(url)
         catego_list = []
         for catego in category_names.keys():
-            catego_list.append(catego)
+            a = {}
+            a["label"] = catego.capitalize()
+            a["value"] = catego
+            catego_list.append(a)
         response["data"] = catego_list
     except Exception as ex:
         print(ex)
