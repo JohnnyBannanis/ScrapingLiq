@@ -10,6 +10,8 @@ def scraping(url):
     data = {}
     for cat in soup.select( 'div[data-id]'):
         categoryName = cat["data-id"]
+        if categoryName == '/liq-celulares':    
+            continue
         categoryNameUpper  = categoryName.replace("/liq-","").upper()
         data[categoryNameUpper] = {}
         prods = []
@@ -35,8 +37,6 @@ def scraping(url):
                     a["url"] = "https://www.pcfactory.cl/" + i.find('a')['href']
                     prods.append(a)
                 data[categoryNameUpper] = prods
-
-
     return data
 
 
